@@ -21,7 +21,7 @@ def calculadora(expression):
         return "Erro"
 
 def handle_client(client_socket):
-    print(f"Conexão do {client_addr} ao servidor UCP estabelecida")
+    print(f"Conexão ao servidor UDP estabelecida")
     
     while True:
         dados, ender = client_socket.recvfrom(1024)
