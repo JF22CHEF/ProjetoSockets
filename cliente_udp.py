@@ -4,16 +4,16 @@ import time
 def requisitar_service(nome):
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect(("120.12.26.0", 2330))
-    client_socket.send(f"{nome}".encode())
+    client_socket.send(f"resolva {nome}".encode())
     request = client_socket.recv(1024).decode()
     client_socket.close()
     return request
 
 resposta = requisitar_service("calculadora_UDP")
-if resposta[0] != "calculadora_UDP":
+if resposta[0] == "Não encontrado":
     print("Este serviço não foi encontrado aqui")
 
-serv, ip, porta = resposta.split()
+nome, ip, porta = resposta.split()
 porta = int(porta)
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
