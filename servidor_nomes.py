@@ -1,9 +1,7 @@
 import socket
 from threading import Thread
 
-service = { "calculadora_UDP": ("120.12.26.0", 2207),
-            "calculadora_TCP": ("120.12.26.0", 2309)
-}
+service = {}
 
 def handle_request(client_socket, client_addr):
     print(f"Conexão do {client_addr} ao servidor de nomes estabelecida")
