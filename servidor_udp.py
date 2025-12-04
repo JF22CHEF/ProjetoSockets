@@ -20,7 +20,7 @@ def calculadora(expression):
     else:
         return "Erro"
 
-def handle_client(client_socket, client_addr):
+def handle_client(client_socket):
     print(f"Conexão do {client_addr} ao servidor UCP estabelecida")
     
     while True:
@@ -37,5 +37,4 @@ servidor.bind(("120.12.26.0", 2207))
 print("O servidor UDP foi iniciado")
 
 while True:
-    client_socket, client_addr = servidor.accept()
-    threading.Thread(target=handle_client, args=(client_socket, client_addr)).start()
+    threading.Thread(target=handle_client, args=(servidor,)).start()
