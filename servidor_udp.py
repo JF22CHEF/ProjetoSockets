@@ -3,8 +3,8 @@ import threading
 
 def registrar_nome():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.connect("120.12.26.0", 2330)
-    mensagem = "registro calculadora_UDP 120.12.26.0 2207"
+    server.connect("127.0.0.1", 2330)
+    mensagem = "registro calculadora_UDP 127.0.0.1 2207"
     server.send(mensagem.encode())
     server.recv(1024)
     server.close()
@@ -33,7 +33,7 @@ def handle_client(client_socket):
     client_socket.close()
 
 servidor = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-servidor.bind(("120.12.26.0", 2207))
+servidor.bind(("127.0.0.1", 2207))
 print("O servidor UDP foi iniciado")
 
 while True:

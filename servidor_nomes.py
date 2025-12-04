@@ -31,8 +31,8 @@ def handle_request(client_socket, client_addr):
 
     client_socket.close()
 
-servidor = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-servidor.bind("120.12.26.0", 2330)
+servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+servidor.bind(("127.0.0.1", 2330))
 servidor.listen()
 
 while True:
